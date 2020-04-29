@@ -1,8 +1,11 @@
+package logica;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -400,21 +403,45 @@ public class Arbol {
         }
         return false;
     }
-    public LinkedList<String> graficar(){
+    public LinkedList<String> getDatosGrafica(){
         grafica.clear();
-        return graficar(raiz);
+        grafica.add(Integer.toString(raiz.llave));
+        return getDatosGrafica(raiz);
     }
-    private LinkedList<String> graficar(Nodo A){
+    private LinkedList<String> getDatosGrafica(Nodo A){
+    	
         if(A!=null){
             if(A.izquierda!=null){
-                grafica.add(A.llave+" izquierda "+A.izquierda.llave);
+                grafica.add(Integer.toString(A.izquierda.llave));
             }
             if(A.derecha!=null){
-                grafica.add(A.llave+" derecha "+A.derecha.llave);
+                grafica.add(Integer.toString(A.derecha.llave));
             }
-            graficar(A.izquierda);
-            graficar(A.derecha);
+            getDatosGrafica(A.izquierda);
+            getDatosGrafica(A.derecha);
         }
         return grafica;
+    }
+
+    public void inorden(Nodo A) {
+    	if(A!=null){
+    		inorden(A.izquierda);
+    		System.out.print(A.llave + ",");
+    		inorden(A.derecha);
+    	}
+    }
+    public void preorden(Nodo A) {
+    	if(A!=null){
+    		System.out.print(A.llave + ",");
+    		inorden(A.izquierda);
+    		inorden(A.derecha);
+    	}
+    }
+    public void postorden(Nodo A) {
+    	if(A!=null){
+    		inorden(A.izquierda);
+    		inorden(A.derecha);
+    		System.out.print(A.llave + ",");
+    	}
     }
 }
