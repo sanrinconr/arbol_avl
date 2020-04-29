@@ -200,7 +200,8 @@ public class Vistaa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
-        try {
+
+    	try {
             String dato = txtdato.getText();
             String[] elementos = dato.split(",");
             int[] numbers = new int[elementos.length];
@@ -213,19 +214,20 @@ public class Vistaa extends javax.swing.JFrame {
                 
                 complementos();
             }*/
+            
             Arbol arbol = new Arbol();
             for(int i=0;i<numbers.length;i++){
                 arbol.insertar(numbers[i]);
              }
             Iterator it = arbol.getDatosGrafica().iterator();
-            
+            this.simulador.limpiar();
             while(it.hasNext()){
                 String h = (String)it.next();
                 System.out.print(h+",");
                 this.simulador.insertar(Integer.parseInt(h));
                 this.inicializar(true);
-                complementos();
             }
+            complementos();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo insertar el dato", "Intenta de nuevo...", 0);
 

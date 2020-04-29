@@ -21,6 +21,9 @@ public class SimuladorArbolBinario {
     public boolean insertar(Integer dato) {
         return (this.miArbol.agregar(dato));
     }
+    public void limpiar() {
+    	miArbol = new ArbolBB();
+    }
     //metodo para mostrar los recorridos del arbol
     public String preOrden() {
         LinkedList it = this.miArbol.preOrden();
