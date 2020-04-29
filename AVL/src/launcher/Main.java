@@ -25,13 +25,12 @@ public class Main {
         }
        // arbol.eliminar(20);
 
-        Iterator it = arbol.graficar().iterator();
+        Iterator it = arbol.getDatosGrafica().iterator();
         while(it.hasNext()){
             String h = (String)it.next();
-            System.out.println(h);
+            System.out.print(h+",");
         }
         
-        arbol.inorden(arbol.RetornarRaiz());
         /*if(arbol.RetornarRaiz()!=null){
         Nodo dato =arbol.RetornarRaiz();
         System.out.println(dato.llave);
@@ -39,7 +38,7 @@ public class Main {
         }*/
         
         VistaPrincipal ventana = new VistaPrincipal();
-        ventana.iniciar();
+        //ventana.iniciar();
         
     }
 }
