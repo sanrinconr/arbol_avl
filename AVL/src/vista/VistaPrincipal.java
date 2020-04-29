@@ -102,7 +102,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jInternalFrame2.setBounds(10, 10, 600, 320);
 
         botonInsertar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        botonInsertar.setText("Insertar");
+        botonInsertar.setText("Dibujar");
         botonInsertar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonInsertarActionPerformed(evt);
@@ -266,12 +266,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
     private void repintarArbol() {
         this.jDesktopPane1.removeAll();
-        Rectangle tamaño = this.jInternalFrame2.getBounds();
+        Rectangle tamanio = this.jInternalFrame2.getBounds();
         this.jInternalFrame2 = null;
-        this.jInternalFrame2 = new JInternalFrame("Representación gráfica", true);
+        this.jInternalFrame2 = new JInternalFrame("Representacion grafica", true);
         this.jDesktopPane1.add(this.jInternalFrame2, JLayeredPane.DEFAULT_LAYER);
         this.jInternalFrame2.setVisible(true);
-        this.jInternalFrame2.setBounds(tamaño);
+        this.jInternalFrame2.setBounds(tamanio);
         this.jInternalFrame2.setEnabled(false);
         this.jInternalFrame2.add(this.simulador.getDibujo(), BorderLayout.CENTER);
     }

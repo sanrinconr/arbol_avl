@@ -54,7 +54,7 @@ public class ArbolExpresionGrafico extends JPanel
          Nodo root = this.miArbol.getRaiz();
          if (root != null) 
          {
-             calcularTamañoSubarbol(root);
+             calcularTamanioSubarbol(root);
              calcularPosicion(root, Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
          }
     }
@@ -67,13 +67,13 @@ public class ArbolExpresionGrafico extends JPanel
      * referencia calcular el tamaño de cada subárbol.
      * @return Dimension con el tamaño de cada subárbol.
      */
-    private Dimension calcularTamañoSubarbol(Nodo n) 
+    private Dimension calcularTamanioSubarbol(Nodo n) 
     {
           if (n == null) 
               return new Dimension(0,0);
  
-          Dimension ld = calcularTamañoSubarbol(n.getIzq());
-          Dimension rd = calcularTamañoSubarbol(n.getDer());
+          Dimension ld = calcularTamanioSubarbol(n.getIzq());
+          Dimension rd = calcularTamanioSubarbol(n.getDer());
           
           int h = fm.getHeight() + parent2child + Math.max(ld.height, rd.height);
           int w = ld.width + child2child + rd.width;
