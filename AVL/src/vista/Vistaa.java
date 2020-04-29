@@ -9,12 +9,14 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
+import java.util.Iterator;
+
 import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
 import vista.SimuladorArbolBinario;
-
+import logica.Arbol;
 /**
  *
  * @author Toloza XD
@@ -199,11 +201,29 @@ public class Vistaa extends javax.swing.JFrame {
 
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
         try {
-            int dato = Integer.parseInt(txtdato.getText());
-            if (this.simulador.insertar(dato)) {
+            String dato = txtdato.getText();
+            String[] elementos = dato.split(",");
+            int[] numbers = new int[elementos.length];
+            for(int i = 0;i < elementos.length;i++){
+               numbers[i] = Integer.parseInt(elementos[i]);
+            }
+            /*if (this.simulador.insertar(dato)) {
                 JOptionPane.showMessageDialog(null, "El dato fue insertado correctamente", " ...", 1);
                 this.inicializar(true);
                 
+                complementos();
+            }*/
+            Arbol arbol = new Arbol();
+            for(int i=0;i<numbers.length;i++){
+                arbol.insertar(numbers[i]);
+             }
+            Iterator it = arbol.getDatosGrafica().iterator();
+            
+            while(it.hasNext()){
+                String h = (String)it.next();
+                System.out.print(h+",");
+                this.simulador.insertar(Integer.parseInt(h));
+                this.inicializar(true);
                 complementos();
             }
         } catch (Exception e) {
