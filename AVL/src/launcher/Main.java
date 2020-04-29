@@ -2,9 +2,11 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+package launcher;
 import java.util.Iterator;
 
+import logica.Arbol;
+import vista.VistaPrincipal;
 /**
  *
  * @author beto
@@ -21,21 +23,23 @@ public class Main {
         for(int i=0;i<lista.length;i++){
            arbol.insertar(lista[i]);
         }
-        arbol.eliminar(20);
+       // arbol.eliminar(20);
 
         Iterator it = arbol.graficar().iterator();
         while(it.hasNext()){
             String h = (String)it.next();
             System.out.println(h);
         }
-       
+        
+        arbol.inorden(arbol.RetornarRaiz());
         /*if(arbol.RetornarRaiz()!=null){
         Nodo dato =arbol.RetornarRaiz();
         System.out.println(dato.llave);
         System.out.println(dato.balance);
         }*/
         
-        
+        VistaPrincipal ventana = new VistaPrincipal();
+        ventana.iniciar();
         
     }
 }

@@ -1,8 +1,11 @@
+package logica;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -416,5 +419,13 @@ public class Arbol {
             graficar(A.derecha);
         }
         return grafica;
+    }
+
+    public void inorden(Nodo A) {
+    	if(A!=null){
+    		inorden(A.izquierda);
+    		System.out.print(A.llave + ",");
+    		inorden(A.derecha);
+    	}
     }
 }
