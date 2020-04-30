@@ -39,6 +39,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.InOrden.setEnabled(enable);
         this.PostOrden.setEnabled(enable);
         this.PreOrden.setEnabled(enable);
+        this.btnBorrar.setEnabled(enable);
     }
 
     /**
@@ -59,7 +60,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         InOrden = new javax.swing.JButton();
         PreOrden = new javax.swing.JButton();
         PostOrden = new javax.swing.JButton();
+        btnBorrar = new javax.swing.JButton();
         txtdato = new javax.swing.JTextField();
+        txtBorrar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -132,6 +135,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 PostOrdenActionPerformed(evt);
             }
         });
+        
+        btnBorrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBorrar.setText("Borrar");
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -154,6 +165,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(botonInsertar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PostOrden, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(4, 4, 4)
+                                    )
+                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                    .addContainerGap()
+                                    .addComponent(txtBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 616, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,7 +195,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PreOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PostOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(PostOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)                                
+                                .addComponent(txtBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -261,6 +286,39 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.impresion.setText(recorrido);
     }//GEN-LAST:event_PostOrdenActionPerformed
 
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
+
+    	try {
+    		boolean ver = false;
+    		String borrar = txtBorrar.getText();
+    		String borrado = "";
+    		String dato = txtdato.getText();
+            String[] elementos = dato.split(",");
+            int[] numbers = new int[elementos.length];
+            for(int i = 0;i < elementos.length;i++){
+            	if(elementos[i].equals(borrar)) {
+            		JOptionPane.showMessageDialog(null, "Dato eliminado", "Operacion exitosa", 1);
+            		ver = true;
+            	}else {
+            		if(i==elementos.length-1) {
+            			borrado += elementos[i];
+            		}else {
+            			borrado += elementos[i]+",";
+            		}
+            	}
+            }
+            
+            if(!ver)
+            	JOptionPane.showMessageDialog(null, "Dato no encontrado", "Operacion fallida", 0);
+            
+            txtdato.setText(borrado);
+            txtBorrar.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo borrar el dato", "Intenta de nuevo...", 0);
+
+        }
+    }
+    
     public void complementos(){
         this.repintarArbol();
     }
@@ -316,11 +374,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton PostOrden;
     private javax.swing.JButton PreOrden;
     private javax.swing.JButton botonInsertar;
+    private javax.swing.JButton btnBorrar;
     private javax.swing.JTextArea impresion;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtdato;
+    private javax.swing.JTextField txtBorrar;
     // End of variables declaration//GEN-END:variables
 }
