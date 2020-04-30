@@ -313,6 +313,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             
             txtdato.setText(borrado);
             txtBorrar.setText("");
+            botonInsertarActionPerformed(evt);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo borrar el dato", "Intenta de nuevo...", 0);
 
