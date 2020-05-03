@@ -5,10 +5,7 @@
  */
 package vista;
 
-/**
- *
- * @author Toloza XD
- */
+
 public class Nodo {
     private int dato;
     private Nodo izq,der;

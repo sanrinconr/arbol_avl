@@ -10,9 +10,7 @@ import vista.VistaPrincipal;
 
 public class Main {
 
-    //AUTOR DEL GRAFICADOR : https://www.youtube.com/watch?v=iRH-9eAiYr0
-	//AUTOR DE LA RUTINA DE LOS ARBOLES AVL: http://proyectosbeta.blogspot.com/2010/03/implementacion-de-arboles-avl-en-java.html
-    public static void main(String[] args) {   
+      public static void main(String[] args) {   
        detalles();
        VistaPrincipal ventana = new VistaPrincipal();
        ventana.setVisible(true);

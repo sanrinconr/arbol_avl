@@ -17,10 +17,7 @@ import javax.swing.JOptionPane;
 
 import vista.SimuladorArbolBinario;
 import logica.Arbol;
-/**
- *
- * @author Toloza XD
- */
+
 public class VistaPrincipal extends javax.swing.JFrame {
 
     private SimuladorArbolBinario simulador = new SimuladorArbolBinario();

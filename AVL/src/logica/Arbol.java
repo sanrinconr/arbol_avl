@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-/**
- *
- * @author beto
- */
+
 public class Arbol {
     private Nodo raiz;
     private Nodo Aux;

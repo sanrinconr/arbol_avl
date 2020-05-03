@@ -7,10 +7,7 @@ import javax.swing.JPanel;
 
 import vista.ArbolBB;
 
-/**
- *
- * @author Toloza XD
- */
+
 public class SimuladorArbolBinario {
 
     ArbolBB miArbol = new ArbolBB();

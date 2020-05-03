@@ -5,10 +5,6 @@ package logica;
  */
 
 
-/**
- *
- * @author beto
- */
 public class Nodo {
     ////////////////////VARIABLES MANEJO//////////////////////////////// 
     int llave;

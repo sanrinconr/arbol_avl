@@ -12,10 +12,6 @@ import javax.swing.JPanel;
 import vista.ArbolExpresionGrafico;
 import vista.Nodo;
 
-/**
- *
- * @author Toloza XD
- */
 
 public class ArbolBB {
 

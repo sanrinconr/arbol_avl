@@ -1,10 +1,7 @@
 
 package vista;
 
-  /**
- *
- * @author Toloza XD
- */
+
 
 import java.awt.*;
 import java.util.*;
