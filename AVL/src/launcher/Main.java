@@ -7,25 +7,20 @@ import java.util.Iterator;
 
 import logica.Arbol;
 import vista.VistaPrincipal;
-/**
- *
- * @author beto
- */
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-              
-       //EN LA LINEA 202 metodo botonInsertarActionPerformed de VistaPrincipal.java esta lo que hice para acoplarlo con la version consola
+    //AUTOR DEL GRAFICADOR : https://www.youtube.com/watch?v=iRH-9eAiYr0
+	//AUTOR DE LA RUTINA DE LOS ARBOLES AVL: http://proyectosbeta.blogspot.com/2010/03/implementacion-de-arboles-avl-en-java.html
+    public static void main(String[] args) {   
        detalles();
        VistaPrincipal ventana = new VistaPrincipal();
        ventana.setVisible(true);
-        
-        
-         
     }
+    
+    
+    
+    
     public static void detalles() {
     	  //TODO ESTO HACE VER LA VENTANA BONITA QUITAR PARA PROBAR COMO SE VE COMO SE VE NORMAL
     	 try {
