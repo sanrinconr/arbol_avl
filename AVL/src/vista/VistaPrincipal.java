@@ -24,6 +24,8 @@ import logica.Arbol;
 public class VistaPrincipal extends javax.swing.JFrame {
 
     private SimuladorArbolBinario simulador = new SimuladorArbolBinario();
+    private Arbol arbol = new Arbol();
+
 
     /**
      * Creates new form Vista
@@ -225,7 +227,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
-
+    	arbol = new Arbol();
     	try {
             String dato = txtdato.getText();
             String[] elementos = dato.split(",");
@@ -240,7 +242,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 complementos();
             }*/
             
-            Arbol arbol = new Arbol();
             for(int i=0;i<numbers.length;i++){
                 arbol.insertar(numbers[i]);
              }
@@ -295,17 +296,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
             for(int i = 0;i < elementos.length;i++){
                numbers[i] = Integer.parseInt(elementos[i]);
             }
-            Arbol arbol = new Arbol();
-            for(int i=0;i<numbers.length;i++){
-                arbol.insertar(numbers[i]);
-             }
+      
     		boolean ver = false;
     		String borrar = txtBorrar.getText();
     		String borrado = "";
     		dato = txtdato.getText();
     		System.out.println("DATO:"+borrar);
+    		//Se elimina el elemento del txt
     		arbol.eliminar(Integer.parseInt(borrar));
 
+    		//Se pasan los datos del arbol a la ventana
     		Iterator it = arbol.getDatosGrafica().iterator();
             this.simulador.limpiar();
             while(it.hasNext()){
@@ -316,7 +316,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
             complementos();
 
-            elementos = dato.split(",");
+            //Se elimina el elemento de la lista
+           /* elementos = dato.split(",");
             numbers = new int[elementos.length];
             for(int i = 0;i < elementos.length;i++){
             	if(elementos[i].equals(borrar)) {
@@ -335,7 +336,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             	JOptionPane.showMessageDialog(null, "Dato no encontrado", "Operacion fallida", 0);
             
             txtdato.setText(borrado);
-            txtBorrar.setText("");
+            txtBorrar.setText("");*/
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo borrar el dato", "Intenta de nuevo...", 0);
 
