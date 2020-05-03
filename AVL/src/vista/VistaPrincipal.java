@@ -234,14 +234,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             int[] numbers = new int[elementos.length];
             for(int i = 0;i < elementos.length;i++){
                numbers[i] = Integer.parseInt(elementos[i]);
-            }
-            /*if (this.simulador.insertar(dato)) {
-                JOptionPane.showMessageDialog(null, "El dato fue insertado correctamente", " ...", 1);
-                this.inicializar(true);
-                
-                complementos();
-            }*/
-            
+            }            
             for(int i=0;i<numbers.length;i++){
                 arbol.insertar(numbers[i]);
              }
@@ -249,7 +242,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
             this.simulador.limpiar();
             while(it.hasNext()){
                 String h = (String)it.next();
-                System.out.print(h+",");
                 this.simulador.insertar(Integer.parseInt(h));
                 this.inicializar(true);
             }
@@ -316,7 +308,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
             complementos();
 
-            //Se elimina el elemento de la lista
+            //Se elimina el elemento de la lista, se deberia eliminar?
            /* elementos = dato.split(",");
             numbers = new int[elementos.length];
             for(int i = 0;i < elementos.length;i++){
