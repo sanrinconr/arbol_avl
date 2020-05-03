@@ -287,14 +287,37 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_PostOrdenActionPerformed
 
     private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInsertarActionPerformed
-
+  
     	try {
-    		boolean ver = false;
-    		String borrar = txtBorrar.getText();
-    		String borrado = "";
     		String dato = txtdato.getText();
             String[] elementos = dato.split(",");
             int[] numbers = new int[elementos.length];
+            for(int i = 0;i < elementos.length;i++){
+               numbers[i] = Integer.parseInt(elementos[i]);
+            }
+            Arbol arbol = new Arbol();
+            for(int i=0;i<numbers.length;i++){
+                arbol.insertar(numbers[i]);
+             }
+    		boolean ver = false;
+    		String borrar = txtBorrar.getText();
+    		String borrado = "";
+    		dato = txtdato.getText();
+    		System.out.println("DATO:"+borrar);
+    		arbol.eliminar(Integer.parseInt(borrar));
+
+    		Iterator it = arbol.getDatosGrafica().iterator();
+            this.simulador.limpiar();
+            while(it.hasNext()){
+            	String h = (String)it.next();
+                System.out.print(h+",");
+                this.simulador.insertar(Integer.parseInt(h));
+                this.inicializar(true);
+            }
+            complementos();
+
+            elementos = dato.split(",");
+            numbers = new int[elementos.length];
             for(int i = 0;i < elementos.length;i++){
             	if(elementos[i].equals(borrar)) {
             		JOptionPane.showMessageDialog(null, "Dato eliminado", "Operacion exitosa", 1);
@@ -313,7 +336,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
             
             txtdato.setText(borrado);
             txtBorrar.setText("");
-            botonInsertarActionPerformed(evt);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "No se pudo borrar el dato", "Intenta de nuevo...", 0);
 

@@ -426,13 +426,13 @@ public class Arbol {
     public void inorden(Nodo A) {
     	if(A!=null){
     		inorden(A.izquierda);
-    		System.out.print(A.llave + ",");
+    		//System.out.print(A.llave + ",");
     		inorden(A.derecha);
     	}
     }
     public void preorden(Nodo A) {
     	if(A!=null){
-    		System.out.print(A.llave + ",");
+    		//System.out.print(A.llave + ",");
     		inorden(A.izquierda);
     		inorden(A.derecha);
     	}
@@ -441,7 +441,7 @@ public class Arbol {
     	if(A!=null){
     		inorden(A.izquierda);
     		inorden(A.derecha);
-    		System.out.print(A.llave + ",");
+    		//System.out.print(A.llave + ",");
     	}
     }
 }
